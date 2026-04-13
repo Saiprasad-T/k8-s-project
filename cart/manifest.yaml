@@ -6,7 +6,7 @@ metadata:
 data:
    REDIS_HOST: redis
    CATALOGUE_HOST: catalogue
-   CATALOGUE_PORT: 8080
+   CATALOGUE_PORT: "8080"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -45,7 +45,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /health
-              port: 8080
+              port: "8080"
             initialDelaySeconds: 10
             periodSeconds: 5
           livenessProbe:
@@ -53,7 +53,7 @@ spec:
             #   path: /health
             #   port: 8080
             tcpSocket:
-              port: 8080
+              port: "8080"
             initialDelaySeconds: 20
             periodSeconds: 10
           envFrom:
@@ -77,5 +77,5 @@ spec:
   type: ClusterIP
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 8080
+      port: "8080"
+      targetPort: "8080"
