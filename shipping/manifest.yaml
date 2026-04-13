@@ -1,0 +1,80 @@
+appVersion: v1
+kind: configMap
+metadata:
+  name: shipping
+  namespace: roboshop
+data:
+  CART_ENDPOINT: cart:8080
+  DB_HOST: mysql
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipping
+  namespace: roboshop
+  labels:
+    project: roboshop
+    tier: backend
+    component: shipping
+spec:
+  selector:
+    matchLabels:
+      project: roboshop
+      tier: backend
+      component: shipping
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        tier: backend
+        component: shipping   
+    spec:
+      containers:
+        - name: shipping
+          image: saithota9/shipping:1.0.0
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "120Mi"
+            limits:
+              cpu: "200m"
+              memory: "256Mi"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            # httpGet:
+            #   path: /health
+            #   port: 8080
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          envFrom:
+            - configMapRef:
+                name: shipping
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shipping
+  namespace: roboshop
+  labels:
+    project: roboshop
+    tier: backend
+    component: shipping 
+spec:
+  selector:
+    project: roboshop
+    tier: backend
+    component: shipping 
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
