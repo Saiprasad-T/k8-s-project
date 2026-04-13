@@ -121,6 +121,10 @@ spec:
               mountPath: /etc/nginx/nginx.conf
               subPath: nginx.conf
               readOnly: true
+      volumes:
+        - name: frontend
+          configMap:
+            name: frontend
 ---
 apiVersion: v1
 kind: Service
