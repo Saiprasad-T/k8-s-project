@@ -35,11 +35,11 @@ spec:
         imagePullPolicy: Always
         resources:
           requests:
-            cpu: "50m"
-            memory: "256Mi"
+            cpu: "250m"
+            memory: "400Mi"
           limits:
-            cpu: "200m"
-            memory: "500Mi"
+            cpu: "400m"
+            memory: "600Mi"
         readinessProbe:
           tcpSocket:
             port: 3306
