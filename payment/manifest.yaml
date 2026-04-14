@@ -41,11 +41,11 @@ spec:
           imagePullPolicy: Always
           resources:
             requests:
-              cpu: "75m"
-              memory: "100Mi"
+              cpu: "10m"
+              memory: "50Mi"
             limits:
-              cpu: "200m"
-              memory: "256Mi"
+              cpu: "50m"
+              memory: "100Mi"
           readinessProbe:
             httpGet:
               path: /health
