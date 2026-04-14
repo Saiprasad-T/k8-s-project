@@ -41,19 +41,19 @@ spec:
             limits:
               cpu: "50m"
               memory: "300Mi"
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: 8080
-            initialDelaySeconds: 120
-            periodSeconds: 5
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 8080
-            # tcpSocket:
-            #   port: 8080
-            initialDelaySeconds: 120
+          # readinessProbe:
+          #   httpGet:
+          #     path: /health
+          #     port: 8080
+          #   initialDelaySeconds: 120
+          #   periodSeconds: 5
+          # livenessProbe:
+          #   httpGet:
+          #     path: /health
+          #     port: 8080
+          #   # tcpSocket:
+          #   #   port: 8080
+          #   initialDelaySeconds: 120
             periodSeconds: 10
           envFrom:
             - configMapRef:
