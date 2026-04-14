@@ -35,13 +35,13 @@ spec:
         - name: user
           image: saithota9/user:1.0.0
           imagePullPolicy: Always
-          # resources:
-          #   requests:
-          #     cpu: "100m"
-          #     memory: "120Mi"
-          #   limits:
-          #     cpu: "200m"
-          #     memory: "256Mi"
+          resources:
+            requests:
+              cpu: "10m"
+              memory: "50Mi"
+            limits:
+              cpu: "50m"
+              memory: "90Mi"
           readinessProbe:
             httpGet:
               path: /health
