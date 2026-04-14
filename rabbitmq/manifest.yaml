@@ -35,12 +35,12 @@ spec:
         image: saithota9/rabbitmq:1.0.0
         imagePullPolicy: Always
         resources:
-          # requests:
-          #   cpu: "15m"
-          #   memory: "15Mi"
-          # limits:
-          #   cpu: "75m"
-          #   memory: "50Mi"
+          requests:
+            cpu: "15m"
+            memory: "128Mi"
+          limits:
+            cpu: "75m"
+            memory: "256Mi"
         readinessProbe:
           tcpSocket:
             port: 5672
