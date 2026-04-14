@@ -25,13 +25,13 @@ spec:
         - name: mongodb
           image: saithota9/mongodb:1.0.0
           imagePullPolicy: Always
-          resources:
-            requests:
-              cpu: "50m"
-              memory: "256Mi"
-            limits:
-              cpu: "200m"
-              memory: "500Mi"
+          # resources:
+          #   requests:
+          #     cpu: "50m"
+          #     memory: "256Mi"
+          #   limits:
+          #     cpu: "200m"
+          #     memory: "500Mi"
           readinessProbe:
             tcpSocket:
               port: 27017
