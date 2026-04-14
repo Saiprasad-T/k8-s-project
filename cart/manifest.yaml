@@ -35,13 +35,13 @@ spec:
         - name: cart
           image: saithota9/cart:1.0.0
           imagePullPolicy: Always
-          # resources:
-          #   requests:
-          #     cpu: "25m"
-          #     memory: "65Mi"
-          #   limits:
-          #     cpu: "100m"
-          #     memory: "120Mi"
+          resources:
+            requests:
+              cpu: "10m"
+              memory: "40Mi"
+            limits:
+              cpu: "40m"
+              memory: "70Mi"
           readinessProbe:
             httpGet:
               path: /health
