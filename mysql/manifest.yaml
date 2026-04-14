@@ -33,13 +33,13 @@ spec:
       - name: mysql
         image: saithota9/mysql:1.0.0
         imagePullPolicy: Always
-        # resources:
-        #   requests:
-        #     cpu: "200m"
-        #     memory: "300Mi"
-        #   limits:
-        #     cpu: "500m"
-        #     memory: "600Mi"
+        resources:
+          requests:
+            cpu: "30m"
+            memory: "550Mi"
+          limits:
+            cpu: "40m"
+            memory: "900Mi"
         readinessProbe:
           tcpSocket:
             port: 3306
