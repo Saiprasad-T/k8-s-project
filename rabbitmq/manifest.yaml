@@ -33,12 +33,12 @@ spec:
       - name: rabbitmq
         image: saithota9/rabbitmq:1.0.0
         resources:
-          requests:
-            cpu: "50m"
-            memory: "256Mi"
-          limits:
-            cpu: "200m"
-            memory: "450Mi"
+          # requests:
+          #   cpu: "50m"
+          #   memory: "256Mi"
+          # limits:
+          #   cpu: "200m"
+          #   memory: "450Mi"
         readinessProbe:
           tcpSocket:
             port: 5672
