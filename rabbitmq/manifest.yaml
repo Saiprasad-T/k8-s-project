@@ -32,6 +32,7 @@ spec:
       containers:
       - name: rabbitmq
         image: saithota9/rabbitmq:1.0.0
+        imagePullPolicy: Always
         resources:
           requests:
             cpu: "15m"
