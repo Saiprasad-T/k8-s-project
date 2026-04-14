@@ -1,5 +1,5 @@
-appVersion: v1
-kind: configMap
+apiVersion: v1
+kind: ConfigMap
 metadata:
   name: payment
   namespace: roboshop
@@ -50,7 +50,7 @@ spec:
             httpGet:
               path: /health
               port: 8080
-            initialDelaySeconds: 10
+            initialDelaySeconds: 120
             periodSeconds: 5
           livenessProbe:
             # httpGet:
@@ -58,7 +58,7 @@ spec:
             #   port: 8080
             tcpSocket:
               port: 8080
-            initialDelaySeconds: 20
+            initialDelaySeconds: 120
             periodSeconds: 10
           envFrom:
             - configMapRef:
