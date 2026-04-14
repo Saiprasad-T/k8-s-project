@@ -45,7 +45,7 @@ spec:
             httpGet:
               path: /health
               port: 8080
-            initialDelaySeconds: 10
+            initialDelaySeconds: 60
             periodSeconds: 5
           livenessProbe:
             # httpGet:
@@ -53,7 +53,7 @@ spec:
             #   port: 8080
             tcpSocket:
               port: 8080
-            initialDelaySeconds: 20
+            initialDelaySeconds: 60
             periodSeconds: 10
           envFrom:
             - configMapRef:
