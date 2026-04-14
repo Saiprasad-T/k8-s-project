@@ -95,13 +95,13 @@ spec:
         - name: frontend
           image: saithota9/frontend:1.0.0
           imagePullPolicy: Always
-          resources:
-            requests:
-              cpu: "100m"
-              memory: "120Mi"
-            limits:
-              cpu: "200m"
-              memory: "256Mi"
+          # resources:
+          #   requests:
+          #     cpu: "100m"
+          #     memory: "120Mi"
+          #   limits:
+          #     cpu: "200m"
+          #     memory: "256Mi"
           readinessProbe:
             httpGet:
               path: /
